@@ -26,6 +26,82 @@
 </html>
 
 
+**************** FINAL DAY 1 CODE *********************
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday A-Frame</title>
+
+  <!-- A-Frame Core -->
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+
+  <!-- Optional: Hide VR button if not needed -->
+  <style>
+    .a-enter-vr-button {
+      display: none !important;
+    }
+  </style>
+
+  <!-- Tap-triggered gyroscope permission (for Android/iOS) -->
+  <script>
+    window.addEventListener("click", function () {
+      if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+      ) {
+        DeviceOrientationEvent.requestPermission()
+          .then((response) => {
+            if (response === "granted") {
+              console.log("Gyroscope access granted.");
+            }
+          })
+          .catch(console.error);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <a-scene
+    shadow="type: pcfsoft"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true"
+    renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
+  >
+
+    <!-- Ground with your birthday texture -->
+    <a-plane
+      position="0 0 0"
+      rotation="-90 0 0"
+      scale="10 10 10"
+      src="bday.png"
+    ></a-plane>
+
+    <!-- A box to test 3D object rendering -->
+    <a-box
+      position="0 1 -5"
+      rotation="45 0 0"
+      color="#4CC3D9"
+      shadow
+    ></a-box>
+
+    <!-- 360° Sky image -->
+    <a-sky src="360img2.jpg"></a-sky>
+
+    <!-- Camera with mobile look-controls -->
+    <a-entity
+      camera
+      position="0 1.6 0"
+      look-controls
+    ></a-entity>
+
+  </a-scene>
+</body>
+</html>
+
 
 
 
