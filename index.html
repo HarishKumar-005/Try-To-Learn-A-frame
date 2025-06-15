@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Birthday Scene</title>
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+    a-scene {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <a-scene
+    shadow="type: pcfsoft"
+    device-orientation-permission-ui="enabled: true"
+    vr-mode-ui="enabled: false"
+    renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
+  >
+    <a-box position="0 1 -5" color="#4CC3D9" material="shader: flat"></a-box>
+    <a-plane position="0 0 -4" rotation="-90 0 0" scale="10 10 10" src="bday.png"></a-plane>
+    <a-sky src="360img2.jpg"></a-sky>
+    <a-entity camera position="0 1.6 0" look-controls wasd-controls></a-entity>
+  </a-scene>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
