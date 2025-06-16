@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Birthday A-Frame</title>
 
+  <!-- PWA Meta -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#ff4081" />
+<link rel="apple-touch-icon" href="bday.png" />
+
+<!-- Register Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('Service Worker registered'))
+        .catch(err => console.error('Service Worker registration failed', err));
+    });
+  }
+</script>
+
+
   <!-- A-Frame Core -->
   <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
 
@@ -42,24 +59,29 @@
     renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
   >
 
+  <a-assets>
+    <img id="360bck" src="360img2.jpg" alt="360bck"> 
+    <img id="ground" src="bday.png" alt="ground">
+  </a-assets>
+
     <!-- Ground with your birthday texture -->
     <a-plane
       position="0 0 0"
       rotation="-90 0 0"
       scale="10 10 10"
-      src="bday.png"
+      src="#ground"
     ></a-plane>
 
     <!-- A box to test 3D object rendering -->
     <a-box
       position="0 1 -5"
       rotation="45 0 0"
-      color="#4CC3D9"
+      color="red"
       shadow
     ></a-box>
 
     <!-- 360° Sky image -->
-    <a-sky src="360img2.jpg"></a-sky>
+    <a-sky src="#360bck"></a-sky>
 
     <!-- Camera with mobile look-controls -->
     <a-entity
